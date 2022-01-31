@@ -1,0 +1,69 @@
+<div class="card">
+    <div class="card-header">
+        Employee Personal Details:
+    </div>
+    <div class="card-columns">
+        <div class="card" style="width: 100px;">
+            <div class="card-header">Full name:</div>
+            <div class="card-body">
+                <p class="card-text">Manojna Vijayakrishna</p>
+            </div>
+        </div>
+        <div class="card p-3">
+            <div class="card-header">Age:</div>
+            <div class="card-body">
+                <p class="card-text">1</p>
+            </div>
+        </div>
+        <div class="card bg-primary text-white text-center p-3">
+            <div class="card-header">Marital Status</div>
+            <div class="card-body">
+                <p class="card-text">Married</p>
+            </div>
+        </div>
+    </div>
+
+
+<!--Displaying a table listing other team members in the team-->
+<span>Members of your team:</span>
+    <div class="table-responsive">
+        <table class="table" *ngIf='data.length'>
+            <thead>
+                <tr>
+                    <th>Name
+                        <button *ngIf="nameAsc; else nameDesc" (click)="onNameArrowClick()" style='font-size:10px'>
+                            <span class="fa fa-arrow-up" aria-hidden="true"></span>
+                        </button>
+                        <ng-template #nameDesc>
+                            <button (click)="onNameArrowClick()" style='font-size:10px'>
+                                <span class="fa fa-arrow-down" aria-hidden="true"></span>
+                            </button>
+                        </ng-template>
+                    </th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                    <th>Role</th>
+                    <th>Years of Experience
+                        <button  *ngIf="displayUpArrow; else displayDownArrow" (click)="onArrowClick()" style='font-size:10px'>
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                        </button>
+                        <ng-template #displayDownArrow>
+                            <button (click)="onArrowClick()" style='font-size:10px'>
+                                <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                            </button>
+                        </ng-template>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let employee of data'>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.department}}</td>
+                    <td>{{employee.designation}}</td>
+                    <td>{{employee.role}}</td>
+                    <td>{{employee.yearsOfExperience}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

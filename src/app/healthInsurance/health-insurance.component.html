@@ -1,0 +1,68 @@
+<!-- <div class='card'>
+    <div class='card-header'>{{pageTitle}}</div>
+    <div class='card-body'>
+        <table *ngIf='insuranceDetails.length'>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Relationship</th>
+                    <th>Insured Amount</th>
+                    <th>Start Date</th>
+                    <th>Expiry Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let insuranceDetail of insuranceDetails">
+                    <td>{{insuranceDetail.name}}</td>
+                    <td>{{insuranceDetail.age}}</td>
+                    <td>{{insuranceDetail.relationship}}</td>
+                    <td>{{insuranceDetail.insuredAmount}}</td>
+                    <td>{{insuranceDetail.startDate}}</td>
+                    <td>{{insuranceDetail.expiryDate}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <enrollment [employeeName]="employeeN"></enrollment>
+    <button (click)="onClick" style="width: 20px;">Enroll</button>
+    <button mat-button (click)="openDialog()">Open Dialog</button>
+</div> -->
+
+<mat-card>
+    <mat-card-header>
+        <mat-toolbar class="toolbar">
+            <mat-card-title>Family Insurance Details:</mat-card-title>
+            <span class="toolbar-spacer"></span>
+            <mat-icon (click)="addMember()">add</mat-icon>
+            <!--<button mat-icon-button (click)="addMember()"><mat-icon>Add</mat-icon></button>-->
+        </mat-toolbar>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="container">
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Relationship</th>
+                        <th>Insured Amount</th>
+                        <th>Start Date</th>
+                        <th>Expiry Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let insuranceDetail of insuranceDetails">
+                        <td>{{insuranceDetail.name}}</td>
+                        <td>{{insuranceDetail.age}}</td>
+                        <td>{{insuranceDetail.relationship}}</td>
+                        <td>{{insuranceDetail.insuredAmount}}</td>
+                        <td>{{insuranceDetail.startDate}}</td>
+                        <td>{{insuranceDetail.expiryDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-card-content>
+</mat-card>
