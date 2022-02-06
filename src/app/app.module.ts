@@ -17,9 +17,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HealthInsuranceService } from './healthInsurance/health-insurance.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmployeeDetailsService } from './employeeDetails/employee-details.service';
+import { PerksComponent } from './perks/perks.component';
+import { PerksService } from './perks/perks.service';
+import { PizzaOrderingComponent } from './perks/pizzaOrdering/pizzaOrdering.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SalaryDetailsComponent,
     TimeBalancesComponent,
     HealthInsuranceComponent,
-    EnrollmentComponent
+    EnrollmentComponent,
+    PerksComponent,
+    PizzaOrderingComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +49,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
+    MatSelectModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -49,12 +59,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       { path:'employee-details', component: EmployeeDetailsComponent},
       { path:'salary-details', component: SalaryDetailsComponent},
       { path:'time-balances', component: TimeBalancesComponent},
-      { path:'health-insurance', component: HealthInsuranceComponent}
+      { path:'health-insurance', component: HealthInsuranceComponent},
+      { path:'perks', component: PerksComponent}
     ])
   ],
   providers: [
     HealthInsuranceService,
-    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+    EmployeeDetailsService,
+    PerksService
   ],
   bootstrap: [AppComponent]
 })

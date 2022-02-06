@@ -11,7 +11,7 @@ export class EnrollmentComponent implements OnInit{
 
     public insuranceForm!: FormGroup;
     // @Input() employeeName: string = '';
-    employeeName: string = '';
+    // employeeName: string = '';
 
     constructor(private formBuilder: FormBuilder,
         private dialogRef: MatDialogRef<EnrollmentComponent>,

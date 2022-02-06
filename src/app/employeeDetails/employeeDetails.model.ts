@@ -5,3 +5,8 @@ export interface IEmployeeDetails {
     role: string;
     yearsOfExperience: number;
 }
+export interface IEmployee {
+    name: string;
+    age: number;
+    maritalStatus: string;
+}

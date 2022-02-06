@@ -2,30 +2,40 @@
     <div class="card-header">
         Employee Personal Details:
     </div>
-    <div class="card-columns">
-        <div class="card" style="width: 100px;">
-            <div class="card-header">Full name:</div>
-            <div class="card-body">
-                <p class="card-text">Manojna Vijayakrishna</p>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2" style="background:rgb(255, 153, 0);">Enter the employee id:</div>
+            <div class="col-md-1">
+                <input type="text" style="width: 100px" [(ngModel)]="empId">
+            </div>
+            <div class="col-md-1">
+                <button class="fa fa-search" aria-hidden="true" (click)="onSubmitEmpId()"></button>
             </div>
         </div>
-        <div class="card p-3">
-            <div class="card-header">Age:</div>
-            <div class="card-body">
-                <p class="card-text">1</p>
-            </div>
+        <ng-template [ngIf]="userPresent">
+        <div class="row row-margin-5">
+            <div class="col-md-1">Full name:</div>
+            <div class="col-md-3">{{employee.name}}</div>
         </div>
-        <div class="card bg-primary text-white text-center p-3">
-            <div class="card-header">Marital Status</div>
-            <div class="card-body">
-                <p class="card-text">Married</p>
-            </div>
+        <div class="row">
+            <div class="col-md-1">Age:</div>
+            <div class="col-md-1">{{employee.age}}</div>
         </div>
+        <div class="row">
+            <div class="col-md-1">Marital Status:</div>
+            <div class="col-md-1">{{employee.maritalStatus}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+        </div>
+    </ng-template>
     </div>
 
 
+
 <!--Displaying a table listing other team members in the team-->
-<span>Members of your team:</span>
+    <ng-template [ngIf]="userPresent">
+    <div class="col-md-2 row-margin-6">Members of your team:</div>
     <div class="table-responsive">
         <table class="table" *ngIf='data.length'>
             <thead>
@@ -66,4 +76,5 @@
             </tbody>
         </table>
     </div>
+    </ng-template>
 </div>

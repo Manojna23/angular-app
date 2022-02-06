@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-header">
+        <label class="col-ng-1"><h3>Perks</h3></label>
+        <div>
+        <select (change) = "selectChangeHandler($event)">
+            <option value=null [disabled]="true">Select perk</option>
+            <option *ngFor="let perk of perksList" value={{perk}}>{{perk}}</option>
+        </select>
+        </div>
+    </div>
+    <ng-template [ngIf]="firstTimeDisplay">
+        <div class="card-body"><p>
+            <div class="col-md-1">Customer Name:</div>
+            <input type="text" style="width: 100px" [(ngModel)]="customerName"/>
+            <div class="col-md-1">
+                <button (click)="onNameSubmit()"></button>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="orderPizza">
+        <div class="card-body">
+            <div class="col-md-4">
+                <orderPizza [customerName]="customerName" (selectedToppingsEmitter)="setSelectedToppings($event)"></orderPizza>
+            </div>
+            <div class = "col-md-2">
+                Selected toppings are:
+                <ol>
+                    <li *ngFor="let topping of toppings">{{topping}}</li>
+                </ol>
+            </div>
+        </div>
+    </ng-template>
+</div>

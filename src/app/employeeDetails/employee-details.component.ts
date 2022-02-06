@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { IEmployeeDetails } from "./employeeDetails.model";
+import { EmployeeDetailsService } from "./employee-details.service";
+import { IEmployee, IEmployeeDetails } from "./employeeDetails.model";
 
 @Component({
     selector: 'employee-details',
@@ -7,6 +8,9 @@ import { IEmployeeDetails } from "./employeeDetails.model";
     styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent {
+    empId: number = 0;
+    userPresent: boolean = false;
+    employee: IEmployee = {} as any;
     public val: string = 'title';
     public displayUpArrow: boolean = true;
     public nameAsc: boolean = true;
@@ -41,6 +45,10 @@ export class EmployeeDetailsComponent {
         }
     ];
 
+    constructor(private employeeDetailsService: EmployeeDetailsService) {
+
+    }
+
     public onArrowClick() {
         this.sortData();
         this.displayUpArrow = !this.displayUpArrow;
@@ -72,5 +80,11 @@ export class EmployeeDetailsComponent {
             })
         }
         this.nameAsc = !this.nameAsc;
+    }
+
+    onSubmitEmpId() {
+        this.userPresent = true;
+        this.employee = this.employeeDetailsService.getEmployee(this.empId);
+        
     }
 }

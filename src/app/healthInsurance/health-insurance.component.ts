@@ -15,7 +15,6 @@ export class HealthInsuranceComponent {
     pageTitle: string = 'Health and Insurance';
     employeeN: string = 'Manojna Vk';
     popUpOpen = true;
-    insuranceDetailsForDisplay: IHealthInsurance[]=[];
     insuranceDetails: IHealthInsurance[]=[];
     // insuranceDetails: IHealthInsurance[] = [
     //     {
@@ -72,8 +71,6 @@ export class HealthInsuranceComponent {
 
         dialogRef.afterClosed().subscribe(result =>{
             this.insuranceDetails = this.healthInsuranceService.getAllMemberDetails();
-            this.insuranceDetailsForDisplay = this.insuranceDetails;
-            console.log(this.insuranceDetailsForDisplay);
             this.popUpOpen = false;
         });
     }
